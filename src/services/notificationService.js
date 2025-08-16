@@ -5,8 +5,8 @@ const twilioService = require('./twilioService');
 
 class NotificationService {
     constructor() {
-        this.dbServiceUrl = process.env.DB_SERVICE_URL || 'http://localhost:5001/api';
-        this.authServiceUrl = process.env.AUTH_SERVICE_URL || 'http://localhost:5002';
+        this.dbServiceUrl = process.env.DB_SERVICE_URL;
+        this.authServiceUrl = process.env.AUTH_SERVICE_URL;
     }
 
     // Create notification in database

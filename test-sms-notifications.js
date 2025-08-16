@@ -3,9 +3,9 @@ const axios = require('axios');
 
 class SMSNotificationTester {
     constructor() {
-        this.dbServiceUrl = process.env.DB_SERVICE_URL || 'http://localhost:5001/api';
-        this.authServiceUrl = process.env.AUTH_SERVICE_URL || 'http://localhost:5002';
-        this.notificationServiceUrl = process.env.NOTIFICATION_SERVICE_URL || 'http://localhost:4003';
+        this.dbServiceUrl = process.env.DB_SERVICE_URL;
+        this.authServiceUrl = process.env.AUTH_SERVICE_URL;
+        this.notificationServiceUrl = process.env.NOTIFICATION_SERVICE_URL;
     }
 
     async testSMSNotifications() {

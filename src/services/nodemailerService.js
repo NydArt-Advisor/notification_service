@@ -18,7 +18,7 @@ class NodemailerService {
 
     try {
       // Create reset link
-      const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
+      const frontendUrl = process.env.FRONTEND_URL;
       const resetLink = `${frontendUrl}/auth/reset-password?token=${resetToken}`;
 
       const mailOptions = {
