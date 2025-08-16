@@ -12,6 +12,10 @@ const PORT = process.env.PORT || 4003;
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Notification Service is running");
+});
+
 // Use notification routes
 app.use('/', notificationRoutes);
 
