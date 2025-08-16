@@ -1,5 +1,6 @@
 // Load environment variables from .env file
 require('dotenv').config();
+const cors = require('cors');
 
 const express = require('express');
 const notificationRoutes = require('./routes/notificationRoutes');
