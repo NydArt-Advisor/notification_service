@@ -132,7 +132,7 @@ const sendWelcomeEmail = async (req, res) => {
     }
 
     // Use loginLink if provided, otherwise use a default
-    const finalLoginLink = loginLink || `${process.env.FRONTEND_URL || 'http://localhost:3000'}/login`;
+    const finalLoginLink = loginLink || `${process.env.FRONTEND_URL}/login`;
 
     console.log(`📧 Sending welcome email to: ${email}`);
 
@@ -218,8 +218,8 @@ const sendSecurityAlert = async (req, res) => {
     }
 
     // Use default values if not provided
-    const finalLoginLink = loginLink || `${process.env.FRONTEND_URL || 'http://localhost:3000'}/dashboard`;
-    const finalSupportLink = supportLink || `${process.env.FRONTEND_URL || 'http://localhost:3000'}/support`;
+    const finalLoginLink = loginLink || `${process.env.FRONTEND_URL}/dashboard`;
+    const finalSupportLink = supportLink || `${process.env.FRONTEND_URL}/support`;
     const finalDeviceInfo = deviceInfo || 'Unknown device';
     const finalLocation = location || 'Unknown location';
 
