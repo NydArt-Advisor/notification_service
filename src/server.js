@@ -74,6 +74,12 @@ app.get('/metrics', async (req, res) => {
   res.end(await register.metrics());
 });
 
-app.listen(PORT, () => {
-  console.log(`Notification service running on port ${PORT}`);
-}); 
+// Export app for testing
+module.exports = app;
+
+// Only start the server if this file is run directly
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Notification service running on port ${PORT}`);
+  });
+} 
