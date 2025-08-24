@@ -13,7 +13,17 @@
     "test:watch": "node src/test/run-tests.js --watch",
     "test:file": "node src/test/run-tests.js --file",
     "test:legacy": "node test-notifications.js",
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "lint": "eslint src/ --ext .js",
+    "lint:fix": "eslint src/ --ext .js --fix",
+    "security:audit": "npm audit",
+    "security:fix": "npm audit fix",
+    "docker:build": "docker build -t nydart-advisor/notification-service .",
+    "docker:run": "docker run -p 5005:5005 nydart-advisor/notification-service",
+    "docker:push": "docker push nydart-advisor/notification-service",
+    "ci:test": "npm run lint && npm run security:audit && npm run test:full",
+    "ci:build": "npm run ci:test && npm run docker:build",
+    "ci:deploy": "npm run ci:build && npm run docker:push"
   },
   "keywords": [],
   "author": "",
