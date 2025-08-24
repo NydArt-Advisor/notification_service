@@ -1,11 +1,50 @@
 {
-  "name": "notification_service",
+  "name": "notification-mail-sms-service-darylnyd",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js",
+    "test": "node src/test/simple-test.js",
+    "test:full": "node src/test/run-tests.js",
+    "test:unit": "node src/test/run-tests.js --unit",
+    "test:integration": "node src/test/run-tests.js --integration",
+    "test:performance": "node src/test/run-tests.js --performance",
+    "test:coverage": "node src/test/run-tests.js --coverage",
+    "test:watch": "node src/test/run-tests.js --watch",
+    "test:file": "node src/test/run-tests.js --file",
+    "test:legacy": "node test-notifications.js",
+    "dev": "nodemon src/server.js",
+    "lint": "eslint src/ --ext .js",
+    "lint:fix": "eslint src/ --ext .js --fix",
+    "security:audit": "npm audit",
+    "security:fix": "npm audit fix",
+    "docker:build": "docker build -t nydart-advisor/notification-service .",
+    "docker:run": "docker run -p 5005:5005 nydart-advisor/notification-service",
+    "docker:push": "docker push nydart-advisor/notification-service",
+    "ci:test": "npm run lint && npm run security:audit && npm run test:full",
+    "ci:build": "npm run ci:test && npm run docker:build",
+    "ci:deploy": "npm run ci:build && npm run docker:push"
   },
+  "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^11.7.1",
+    "nodemon": "^2.0.22",
+    "nyc": "^17.1.0",
+    "sinon": "^21.0.0",
+    "supertest": "^7.1.4"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.5",
+    "axios": "^1.11.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.1",
+    "express": "^4.18.2",
+    "nodemailer": "^7.0.4",
+    "prom-client": "^15.1.3",
+    "twilio": "^4.23.0"
+  }
 }
